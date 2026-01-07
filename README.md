@@ -55,7 +55,7 @@ Make sure to include your config files in the `tsconfig.json`:
 <hr />
 
 ```
-pnpm i @eslint/eslintrc @eslint/js @next/eslint-plugin-next eslint eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-eslint-comments eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-tsdoc eslint-plugin-unicorn typescript-eslint prettier prettier-plugin-packagejson prettier-plugin-tailwindcss eslint-plugin-tailwindcss -D
+pnpm add @eslint/eslintrc @eslint/js @next/eslint-plugin-next eslint eslint-config-prettier eslint-import-resolver-typescript eslint-plugin-eslint-comments eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-tsdoc eslint-plugin-unicorn typescript-eslint prettier prettier-plugin-packagejson prettier-plugin-tailwindcss eslint-plugin-tailwindcss -D
 ```
 
 ## Future Additions
