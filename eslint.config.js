@@ -6,7 +6,7 @@ import importPlugin from 'eslint-plugin-import';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
-// import tailwindPlugin from 'eslint-plugin-tailwindcss';
+import tailwindPlugin from 'eslint-plugin-tailwindcss';
 import commentsPlugin from 'eslint-plugin-eslint-comments';
 import nextPlugin from '@next/eslint-plugin-next';
 import tsdocPlugin from 'eslint-plugin-tsdoc';
@@ -46,8 +46,7 @@ export default defineConfig([
             reactPlugin.configs.flat.recommended,
             reactPlugin.configs.flat['jsx-runtime'],
             reactHooksPlugin.configs['recommended-latest'],
-            /** bring back when the plugin supports v4 */
-            //  tailwindPlugin.configs['flat/recommended'],
+            tailwindPlugin.configs['flat/recommended'],
             compatCommentsPluginRecommended,
             compatNextPluginRecommended,
         ],
@@ -70,20 +69,19 @@ export default defineConfig([
             react: {
                 version: 'detect',
             },
-            /** bring back when the plugin supports v4 */
-            // tailwindcss: {
-            //     config: 'tailwind.config.ts',
-            //     callees: ['classnames', 'clsx', 'ctl', 'cn', 'cva'],
-            //     cssFiles: [
-            //         'src/app/ui/styles/globals.css',
-            //         '**/*.css',
-            //         '!**/node_modules',
-            //         '!**/.*',
-            //         '!**/dist',
-            //         '!**/build',
-            //     ],
-            //     whitelist: ['mc\\-(.+)'],
-            // },
+            tailwindcss: {
+                config: 'tailwind.config.ts',
+                callees: ['classnames', 'clsx', 'ctl', 'cn', 'cva'],
+                cssFiles: [
+                    'src/app/ui/styles/globals.css',
+                    '**/*.css',
+                    '!**/node_modules',
+                    '!**/.*',
+                    '!**/dist',
+                    '!**/build',
+                ],
+                whitelist: ['mc\\-(.+)'],
+            },
         },
         plugins: {
             tsdoc: tsdocPlugin,
@@ -314,12 +312,11 @@ export default defineConfig([
             /** Disallow closing tags for components without children. */
             'react/self-closing-comp': 'warn',
 
-            /** bring back when the plugin supports v4 */
-            // /** TAILWIND */
-            // /** Prevent conflicts with Prettier classname order */
-            // 'tailwindcss/classnames-order': 'off',
-            // /** Prevent conflicts with new classnames */
-            // 'tailwindcss/migration-from-tailwind-2': 'off',
+            /** TAILWIND */
+            /** Prevent conflicts with Prettier classname order */
+            'tailwindcss/classnames-order': 'off',
+            /** Prevent conflicts with new classnames */
+            'tailwindcss/migration-from-tailwind-2': 'off',
 
             /** TYPESCRIPT */
             /** Require types definitions be types only */
@@ -482,7 +479,7 @@ export default defineConfig([
                     },
                     // Ignore Next app router file names
                     ignore: [
-                        /^(?<fileNames>error|global-error|layout|loading|not-found|page)\.(?<fileTypes>jsx|tsx)$/i,
+                        /^(?<fileNames>error|global-error|layout|loading|not-found|page|use.*)\.(?<fileTypes>jsx|tsx)$/i,
                     ],
                 },
             ],
